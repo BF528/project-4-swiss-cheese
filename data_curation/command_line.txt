@@ -1,0 +1,16 @@
+
+tr ' ' '\12' <output4.txt| sort | uniq -c | sort -nr > result4.txt
+awk 'NR==1{print $1}' result6.txt
+awk '{x+=$1; next} END{print x/NR}'
+awk '{sum+=$1; sumsq+=$1*$1} END {print (sum/NR)-sqrt(sumsq - (sum/NR)^2)/(NR-1)}' freq4.txt
+awk '{sum+=$1; sumsq+=$1*$1} END {print (sum/NR)-sqrt(sumsq - (sum/NR)^2)/(NR-1)}' freq5.txt
+awk '{sum+=$1; sumsq+=$1*$1} END {print (sum/NR)-sqrt(sumsq - (sum/NR)^2)/(NR-1)}' freq6.txt
+awk '{if ($1>384.039) {print $2}}' freq4.txt>outsd4.txt
+awk '{if ($1>255.858) {print $2}}' freq5.txt>outsd5.txt
+awk '{if ($1>257.963) {print $2}}' freq6.txt>outsd6.txt
+
+ 
+
+
+grep 'gene_id(.*);' /projectnb/bf528/users/swiss_cheese2/project_4/data/ genecode.v37.annotation.gtf
+awk '{if ($1!="e_type") {print $10,$12}}' gencode.v37.annotation.gtf | tr -d  \" | sed 's/;//g'
