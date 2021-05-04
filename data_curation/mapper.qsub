@@ -1,0 +1,11 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+
+
+# your commands here
+
+awk '{if ($1!="e_type") {print $12,$10}}' gencode.v37.annotation.gtf | tr -d  \" | sed 's/;//g' > map.tsv

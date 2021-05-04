@@ -1,0 +1,11 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+
+
+# your commands here
+
+salmon alevin -l /projectnb/bf528/users/swiss_cheese2/project_4/data/barcode.txt --end 5 --barcodeLength 19 --umiLength 6 -1 /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879604_1_bc.fastq.gz /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879605_1_bc.fastq.gz /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879606_1_bc.fastq.gz -2 /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879604_2.fastq.gz /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879605_2.fastq.gz /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879606_2.fastq.gz -i /projectnb/bf528/users/swiss_cheese2/project_4/data/transcripts_index2 -p 10 -o /projectnb/bf528/users/swiss_cheese2/project_4/data/alevin_output2 --tgMap /projectnb/bf528/users/swiss_cheese2/project_4/data/map.tsv
