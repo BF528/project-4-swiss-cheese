@@ -1,0 +1,11 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+
+
+# your commands here
+
+grep '^[^GATC@+]' /projectnb/bf528/users/swiss_cheese2/project_4/data/SRR3879604_1_bc.fastq | cut -c1-19 >/projectnb/bf528/users/swiss_cheese2/project_4/data/output4.txt
